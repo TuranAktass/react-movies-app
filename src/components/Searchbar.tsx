@@ -54,7 +54,7 @@ class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
 
         <ListGroup>
           <ListGroupItem
-            active={this.state.filterType == "movie"}
+            active={this.state.filterType === "movie"}
             onClick={() => {
               this.setState({ filterType: "movie" });
               this.props.handleSubmit(
@@ -66,7 +66,7 @@ class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
             Movies
           </ListGroupItem>
           <ListGroupItem
-            active={this.state.filterType == "series"}
+            active={this.state.filterType === "series"}
             onClick={() => {
               this.setState({ filterType: "series" });
               this.props.handleSubmit(
@@ -78,7 +78,7 @@ class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
             Series
           </ListGroupItem>
           <ListGroupItem
-            active={this.state.filterType == "episode"}
+            active={this.state.filterType === "episode"}
             onClick={() => {
               console.log("episode");
               this.setState({ filterType: "episode" });

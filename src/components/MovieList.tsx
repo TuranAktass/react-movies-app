@@ -19,7 +19,9 @@ import {
 } from "reactstrap";
 
 interface MovieListProps {
+  favs: any;
   movies: any;
+  addToFav: any;
 }
 
 interface MovieListState {}
@@ -60,17 +62,35 @@ class MovieListComponents extends React.Component<
                           Show
                         </Button>
                       </Link>
+                      {this.props.favs.some(
+                        (e: any) => e.imdbID === movie.imdbID
+                      ) ? (
+                        <Button
+                          style={{ backgroundColor: "red" }}
+                          onClick={() => this.props.addToFav(movie)}
+                        >
+                          Remove From Favs
+                        </Button>
+                      ) : (
+                        <Button
+                          style={{ backgroundColor: "green" }}
+                          onClick={() => this.props.addToFav(movie)}
+                        >
+                          Add To Favs
+                        </Button>
+                      )}
                     </Container>
                   </Row>
                 </ListGroupItem>
               </div>
-            ))}{" "}
+            ))}
           </ListGroup>
         )}
       </Container>
     );
   }
 }
+/*    */
 
 export default MovieListComponents;
 

@@ -12,22 +12,26 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
+  Badge,
 } from "reactstrap";
 
-function Navi(args: any) {
+function Navi(props: any) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div>
-      <Navbar {...args}>
+      <Navbar {...props}>
         <NavbarBrand href="/">MoviesApp</NavbarBrand>
         <Collapse isOpen={true}>
           <Nav className="me-auto">
             <NavItem>
-              <NavLink href="/components/">Favorites</NavLink>
+              <NavLink href="/components/">
+                Favorites <Badge>{props.favCount}</Badge>
+              </NavLink>
             </NavItem>
+
             <NavItem>
               <NavLink href="https://github.com/TuranAktass/react-movies-app">
                 GitHub
